@@ -29,10 +29,27 @@ export default async function handler(req, res) {
       }
     );
 
-    const data = await geminiRes.json();
+    const rawText = await geminiRes.text();
+    console.log('Gemini raw response:', rawText.slice(0, 500));
 
-    // Translate Gemini response → Anthropic-style so frontend works unchanged
+    let data;
+    try {
+      data = JSON.parse(rawText);
+    } catch(e) {
+      return res.status(500).json({ error: 'Gemini returned invalid JSON', raw: rawText.slice(0, 300) });
+    }
+
+    if (!geminiRes.ok) {
+      console.error('Gemini error:', JSON.stringify(data));
+      return res.status(geminiRes.status).json({ error: data?.error?.message || 'Gemini API error' });
+    }
+
     const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    if (!text) {
+      console.error('Empty text from Gemini:', JSON.stringify(data));
+      return res.status(500).json({ error: 'Empty response from Gemini', raw: JSON.stringify(data).slice(0,300) });
+    }
+
     return res.status(200).json({
       content: [{ type: 'text', text }]
     });
