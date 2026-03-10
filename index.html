@@ -376,7 +376,7 @@ Respond ONLY valid compact JSON:
 {"news":[{"id":1,"featured":true,"title":"...","tag":"ai|industry|market|tech|career","summary":"...","detail":"...","key_points":["...","...","..."],"placement_relevance":true,"placement_tip":"...","source":"...","importance":"HIGH|MEDIUM|LOW","companies":["TCS"]}]}
 Rules: 1 featured:true, 3-4 placement_relevance:true, companies=names mentioned (can be []). Return all 7.`;
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,messages:[{role:'user',content:prompt}]})});
+    const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,messages:[{role:'user',content:prompt}]})});
     const d=await r.json();
     const t=d.content.map(i=>i.text||'').join('');
     const p=JSON.parse(t.replace(/```json|```/g,'').trim());
@@ -437,7 +437,7 @@ async function aiAction(type,id,btn,box){
     iq:`Generate 3 sharp interview questions an interviewer might ask a fresher about this IT news. Format as numbered list.\nStory: "${story.title}"\n${story.summary}`
   };
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:400,messages:[{role:'user',content:prompts[type]}]})});
+    const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:400,messages:[{role:'user',content:prompts[type]}]})});
     const d=await r.json();
     const t=d.content.map(i=>i.text||'').join('').trim();
     const lbl=type==='gd'?'🎤 GD Summary':'💼 Interview Questions';
@@ -577,7 +577,7 @@ function renderBookmarks(){
 }
 
 // SHARE
-const SITE_URL = 'https://techdesk.vercel.app'; // update after deploy
+const SITE_URL = 'https://techdesk-seven.vercel.app';
 let _shareStory = null;
 
 function openShare(id){
