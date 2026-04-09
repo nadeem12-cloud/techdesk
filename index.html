@@ -105,13 +105,6 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
 .placement-note{margin-top:.6rem;padding:.55rem .75rem;border-left:3px solid var(--accent);background:var(--accent-light);font-size:.79rem;color:var(--text-secondary);}
 .placement-note strong{display:block;font-family:var(--sans);font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:.25rem;font-weight:700;}
 
-.ai-actions{display:flex;gap:.5rem;margin-top:.75rem;flex-wrap:wrap;}
-.ai-btn{font-family:var(--sans);font-size:.65rem;font-weight:600;padding:4px 10px;border:1px solid var(--border);background:transparent;color:var(--text-secondary);cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:.3rem;}
-.ai-btn:hover:not(:disabled){border-color:var(--accent);color:var(--accent);background:var(--accent-light);}
-.ai-btn:disabled{opacity:.45;cursor:not-allowed;}
-.ai-result{margin-top:.75rem;padding:.75rem;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);font-size:.8rem;color:var(--text-secondary);line-height:1.7;display:none;}
-.ai-result .rl{font-family:var(--sans);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem;}
-
 /* GLOSSARY */
 .gt{border-bottom:1px dashed var(--text-muted);cursor:help;position:relative;display:inline;}
 .gt:hover .tip{display:block;}
@@ -209,7 +202,7 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
   <div class="masthead-inner">
     <div class="masthead-meta">
       <span id="dateDisplay"></span>
-      <span class="edition-tag">AI Edition</span>
+      <span class="edition-tag">News Edition</span>
       <span>IT Industry · Placements · Tech</span>
     </div>
     <div class="site-title">TechDesk</div>
@@ -235,7 +228,7 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
     <div class="section-title" id="sectionTitle">Today's Briefing</div>
     <button class="fetch-btn" id="fetchBtn" onclick="fetchNews()">
       <div class="spinner" id="spinner"></div>
-      <span id="fetchLabel">Fetch Latest News</span>
+      <span id="fetchLabel">Load News</span>
     </button>
   </div>
 
@@ -268,9 +261,9 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
   </div>
 
   <div id="feedView">
-    <div class="empty-state"><h2>No stories loaded yet</h2><p>Click "Fetch Latest News" to get today's IT industry briefing</p></div>
+    <div class="empty-state"><h2>No stories loaded yet</h2><p>Click "Load News" to get today's IT industry briefing</p></div>
   </div>
-  <div class="company-view" id="coView"><div style="font-family:var(--sans);font-size:.85rem;color:var(--text-muted);text-align:center;padding:3rem;">Fetch news first to see company-wise stories.</div></div>
+  <div class="company-view" id="coView"><div style="font-family:var(--sans);font-size:.85rem;color:var(--text-muted);text-align:center;padding:3rem;">Load news first to see company-wise stories.</div></div>
   <div class="bm-view" id="bmView"><div class="bm-empty">No saved stories yet. Hit 🔖 on any card to bookmark it.</div></div>
 </div>
 
@@ -320,6 +313,137 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
 let allNews=[], bookmarks=[], currentTab='feed', currentCat='all', currentQ='';
 
 const COMPANIES=['TCS','Infosys','Wipro','HCL','Accenture','Cognizant','Tech Mahindra','IBM','Microsoft','Google','Amazon','Meta','Nvidia','Flipkart','Zomato'];
+
+// MOCK NEWS DATA - No API needed!
+const MOCK_NEWS = [
+  {
+    id: 1,
+    featured: true,
+    title: "TCS Announces 5% Salary Hike for 2026, Focuses on AI Skills",
+    tag: "career",
+    summary: "Tata Consultancy Services announced a 5% base salary increase for eligible employees across all levels. The hike aligns with industry trends and is coupled with enhanced training programs in AI and cloud technologies.",
+    detail: "The salary revision will be effective from April 2026. TCS also launched a new upskilling program targeting 50,000 employees in generative AI, machine learning, and cloud platforms over the next 12 months.",
+    key_points: [
+      "5% salary hike effective April 2026",
+      "50,000 employees to undergo AI/ML training",
+      "Enhanced benefits for cloud specialists"
+    ],
+    placement_relevance: true,
+    placement_tip: "Freshers hired now will start with revised payslips. Focus on AI/ML skills during campus drives.",
+    source: "TechNews Today",
+    importance: "HIGH",
+    companies: ["TCS"]
+  },
+  {
+    id: 2,
+    featured: false,
+    title: "Infosys Launches AI-First Development Center in Bengaluru",
+    tag: "tech",
+    summary: "Infosys inaugurated a new AI-dedicated development center in Bengaluru with 500+ AI engineers. The facility will focus on building enterprise-grade GenAI solutions for global clients.",
+    detail: "The center will offer internships and entry-level positions for freshers with background in computer science and AI. Infosys plans to hire 200 freshers annually from this center.",
+    key_points: [
+      "500+ AI engineers at new center",
+      "200 fresher positions annually",
+      "Focus on enterprise GenAI solutions"
+    ],
+    placement_relevance: true,
+    placement_tip: "Internship opportunities available for final year students. Apply through campus recruitment.",
+    source: "Infosys Newsroom",
+    importance: "HIGH",
+    companies: ["Infosys"]
+  },
+  {
+    id: 3,
+    featured: false,
+    title: "Wipro Faces 8% Employee Attrition in Q4 2025",
+    tag: "industry",
+    summary: "Wipro reported 8% attrition rate in Q4 2025, lower than the industry average of 11%. The company attributes this to improved retention strategies and better work-life balance policies.",
+    detail: "Lower attrition rates indicate stronger employee satisfaction. This translates to more stable roles and career growth opportunities for new hires compared to high-attrition companies.",
+    key_points: [
+      "Attrition rate: 8% vs industry 11%",
+      "Retention strategies showing results",
+      "Stable career progression for new joiners"
+    ],
+    placement_relevance: true,
+    placement_tip: "Companies with lower attrition offer better growth. Join Wipro for stable long-term career.",
+    source: "Wipro Q4 Results",
+    importance: "MEDIUM",
+    companies: ["Wipro"]
+  },
+  {
+    id: 4,
+    featured: false,
+    title: "Accenture Expands Nearshoring Hub in India, Creates 1000 Jobs",
+    tag: "career",
+    summary: "Accenture announced a nearshoring initiative to expand operations in Pune and Hyderabad, creating 1,000 new positions for developers and consultants. Hiring targets mid-level and fresher talent.",
+    detail: "The nearshoring hub will serve North American clients directly, offering 24/7 support. Freshers with 0-2 years experience are encouraged to apply for associate roles.",
+    key_points: [
+      "1,000 new positions created",
+      "Nearshoring hub in Pune & Hyderabad",
+      "Fresher-friendly hiring wave"
+    ],
+    placement_relevance: true,
+    placement_tip: "Major hiring spree for freshers. Contact Accenture campus team immediately.",
+    source: "Accenture Press Release",
+    importance: "HIGH",
+    companies: ["Accenture"]
+  },
+  {
+    id: 5,
+    featured: false,
+    title: "GenAI Bootcamp by Coursera and Google Now Free for Indian Students",
+    tag: "ai",
+    summary: "Coursera and Google launched a free 4-week GenAI bootcamp for Indian college students, covering prompt engineering, LLM basics, and practical AI applications. Graduates receive completion certificates.",
+    detail: "The program is available to students at 500+ Indian colleges. Completion certificates are recognized by major IT companies and can boost campus placement chances.",
+    key_points: [
+      "Free 4-week GenAI bootcamp",
+      "Industry-recognized certificates",
+      "Available at 500+ colleges"
+    ],
+    placement_relevance: true,
+    placement_tip: "Enroll to gain competitive edge. AI skills are hot in campus drives right now.",
+    source: "Coursera India Blog",
+    importance: "HIGH",
+    companies: []
+  },
+  {
+    id: 6,
+    featured: false,
+    title: "HCL Techada 2026: Campus Hiring Drive Launches Nationwide",
+    tag: "career",
+    summary: "HCL Technologies launched Techada 2026, its flagship campus hiring drive, targeting 5,000 freshers across India. The drive focuses on roles in cloud, cybersecurity, and GenAI.",
+    detail: "Techada 2026 will visit 150+ colleges nationwide. Pre-registration opened on the HCL website with special bonuses for early applicants.",
+    key_points: [
+      "5,000 fresher positions available",
+      "150+ colleges on tour",
+      "Cloud, cyber, GenAI roles"
+    ],
+    placement_relevance: true,
+    placement_tip: "Techada is HCL's mega campus drive. Pre-register now to get early access.",
+    source: "HCL Careers",
+    importance: "HIGH",
+    companies: ["HCL"]
+  },
+  {
+    id: 7,
+    featured: false,
+    title: "Indian IT Market Projected to Grow 8.5% in 2026 – NASSCOM Report",
+    tag: "market",
+    summary: "NASSCOM released its annual IT market outlook, projecting 8.5% growth for the Indian IT industry in 2026. GenAI adoption and global nearshoring trends are key growth drivers.",
+    detail: "This growth will create 50,000+ entry-level positions for freshers. Companies like TCS, Infosys, and Wipro will lead hiring across cloud, AI, and digital transformation projects.",
+    key_points: [
+      "8.5% industry growth projected",
+      "50,000+ entry-level jobs expected",
+      "GenAI and cloud are key drivers"
+    ],
+    placement_relevance: true,
+    placement_tip: "Strong hiring year ahead. Focus on cloud and AI skills for better placement odds.",
+    source: "NASSCOM",
+    importance: "MEDIUM",
+    companies: ["TCS", "Infosys", "Wipro"]
+  }
+];
+
 const GLOSSARY={
   'EBITDA':'Earnings Before Interest, Taxes, Depreciation & Amortisation — a core profitability measure.',
   'GenAI':'Generative AI — AI that creates text, images, code etc. (ChatGPT, Gemini, Claude).',
@@ -335,6 +459,7 @@ const GLOSSARY={
   'outsourcing':'Hiring an external company (often Indian IT firms) to handle business processes.',
   'cloud':'Remote servers and services (AWS, Azure, GCP) used instead of local hardware.',
   'valuation':'Estimated financial worth of a company.',
+  'nearshoring':'Outsourcing to nearby countries instead of distant ones (India for North America).',
 };
 
 document.getElementById('dateDisplay').textContent =
@@ -366,28 +491,17 @@ function setTab(btn, tab) {
   }
 }
 
-async function fetchNews(){
+function fetchNews(){
   const btn=document.getElementById('fetchBtn'),sp=document.getElementById('spinner'),lb=document.getElementById('fetchLabel');
-  btn.disabled=true; sp.style.display='block'; lb.textContent='Fetching…';
-  const hint=currentCat!=='all'?`Focus on "${currentCat}".`:'';
-  const prompt=`IT news editor for Indian CS placement students. Generate 7 IT industry news stories for March 2026: AI/ML, Indian IT companies (TCS/Infosys/Wipro/HCL/Accenture), market, hiring, tech. ${hint}
-SHORT fields: summary=2 sentences, detail=2 sentences, key_points=3 items max 10 words each, placement_tip=1 sentence.
-Respond ONLY valid compact JSON:
-{"news":[{"id":1,"featured":true,"title":"...","tag":"ai|industry|market|tech|career","summary":"...","detail":"...","key_points":["...","...","..."],"placement_relevance":true,"placement_tip":"...","source":"...","importance":"HIGH|MEDIUM|LOW","companies":["TCS"]}]}
-Rules: 1 featured:true, 3-4 placement_relevance:true, companies=names mentioned (can be []). Return all 7.`;
-  try{
-    const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,messages:[{role:'user',content:prompt}]})});
-    const d=await r.json();
-    const t=d.content.map(i=>i.text||'').join('');
-    const p=JSON.parse(t.replace(/```json|```/g,'').trim());
-    allNews=p.news;
+  btn.disabled=true; sp.style.display='block'; lb.textContent='Loading…';
+  
+  // Simulate loading delay
+  setTimeout(()=>{
+    allNews = MOCK_NEWS;
     renderNews(allNews);
-    document.getElementById('updateBar').textContent=`Updated ${new Date().toLocaleTimeString('en-IN')} · Claude AI`;
-  }catch(e){
-    document.getElementById('feedView').innerHTML=`<div class="empty-state"><h2>Could not load</h2><p>${e.message}</p></div>`;
-  }finally{
+    document.getElementById('updateBar').textContent=`Updated ${new Date().toLocaleTimeString('en-IN')} · Local Data`;
     btn.disabled=false; sp.style.display='none'; lb.textContent='Refresh';
-  }
+  }, 800);
 }
 
 // SEARCH
@@ -427,42 +541,11 @@ function toggleBM(id,e){
   else if(currentTab==='bookmarks') renderBookmarks();
 }
 
-// AI ACTIONS
-async function aiAction(type,id,btn,box){
-  const story=allNews.find(n=>n.id===id)||bookmarks.find(n=>n.id===id);
-  if(!story)return;
-  btn.disabled=true; btn.textContent='⏳ Generating…'; box.style.display='none';
-  const prompts={
-    gd:`Write a 4-5 line Group Discussion ready summary of this IT news story for an Indian campus placement student. Be direct and confident.\nStory: "${story.title}"\n${story.summary} ${story.detail||''}`,
-    iq:`Generate 3 sharp interview questions an interviewer might ask a fresher about this IT news. Format as numbered list.\nStory: "${story.title}"\n${story.summary}`
-  };
-  try{
-    const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:400,messages:[{role:'user',content:prompts[type]}]})});
-    const d=await r.json();
-    const t=d.content.map(i=>i.text||'').join('').trim();
-    const lbl=type==='gd'?'🎤 GD Summary':'💼 Interview Questions';
-    box.innerHTML=`<div class="rl">${lbl}</div>${t.replace(/\n/g,'<br>')}`;
-    box.style.display='block';
-  }catch(e){
-    box.innerHTML=`<div class="rl">Error</div>${e.message}`;
-    box.style.display='block';
-  }finally{
-    btn.disabled=false;
-    btn.textContent=type==='gd'?'🎤 GD Summary':'💼 Interview Qs';
-  }
-}
-
 function detailBlock(n,q){
   if(!n.detail) return '';
-  const uid=`ar-${n.id}-${Math.random().toString(36).slice(2,6)}`;
   return `<div class="card-detail">
     ${glos(hl(n.detail,q))}
     ${n.placement_tip?`<div class="placement-note"><strong>📌 Placement Angle</strong>${hl(n.placement_tip,q)}</div>`:''}
-    <div class="ai-actions">
-      <button class="ai-btn" onclick="event.stopPropagation();aiAction('gd',${n.id},this,document.getElementById('${uid}'))">🎤 GD Summary</button>
-      <button class="ai-btn" onclick="event.stopPropagation();aiAction('iq',${n.id},this,document.getElementById('${uid}'))">💼 Interview Qs</button>
-    </div>
-    <div class="ai-result" id="${uid}"></div>
   </div>`;
 }
 
@@ -495,7 +578,7 @@ function renderNews(news){
       <div class="card-meta" style="margin-bottom:0">
         <span class="card-tag ${tc(feat.tag)}">${tl(feat.tag)}</span>
         <div style="display:flex;gap:.5rem;align-items:center;">
-          <span>${feat.source||'AI Briefing'}</span>
+          <span>${feat.source||'TechDesk'}</span>
           ${feat.placement_relevance?'<span class="placement-pill">📌 Placement</span>':''}
           <button class="icon-btn${fb?' on':''}" onclick="toggleBM(${feat.id},event)" title="Bookmark">🔖</button>
           <button class="icon-btn" onclick="event.stopPropagation();openShare(${feat.id})" title="Share">📤</button>
@@ -521,7 +604,7 @@ function renderNews(news){
       <div class="card-headline">${hl(n.title,q)}</div>
       <div class="card-summary">${glos(hl(n.summary,q))}</div>
       ${detailBlock(n,q)}
-      <div class="card-meta"><span>${n.source||'AI Briefing'}</span>${n.placement_relevance?'<span class="placement-pill">📌 Placement</span>':'<span></span>'}</div>
+      <div class="card-meta"><span>${n.source||'TechDesk'}</span>${n.placement_relevance?'<span class="placement-pill">📌 Placement</span>':'<span></span>'}</div>
     </div>`;}).join('');
 
   document.getElementById('feedView').innerHTML=fHTML+(rest.length?`<div class="news-grid">${gHTML}</div>`:'');
@@ -529,7 +612,7 @@ function renderNews(news){
 
 // COMPANY TRACKER
 function renderCompanies(){
-  if(!allNews.length){document.getElementById('coView').innerHTML='<div style="font-family:var(--sans);font-size:.85rem;color:var(--text-muted);text-align:center;padding:3rem;">Fetch news first.</div>';return;}
+  if(!allNews.length){document.getElementById('coView').innerHTML='<div style="font-family:var(--sans);font-size:.85rem;color:var(--text-muted);text-align:center;padding:3rem;">Load news first.</div>';return;}
   const map={};
   allNews.forEach(n=>{
     const cos=n.companies&&n.companies.length?n.companies:COMPANIES.filter(c=>(n.title+' '+n.summary).includes(c));
@@ -571,7 +654,7 @@ function renderBookmarks(){
       <div class="card-headline">${n.title}</div>
       <div class="card-summary">${glos(n.summary)}</div>
       ${detailBlock(n,'')}
-      <div class="card-meta"><span>${n.source||'AI Briefing'}</span>${n.placement_relevance?'<span class="placement-pill">📌 Placement</span>':'<span></span>'}</div>
+      <div class="card-meta"><span>${n.source||'TechDesk'}</span>${n.placement_relevance?'<span class="placement-pill">📌 Placement</span>':'<span></span>'}</div>
     </div>`).join('');
   document.getElementById('bmView').innerHTML=`<div class="news-grid" style="grid-template-columns:repeat(auto-fill,minmax(290px,1fr))">${cards}</div>`;
 }
@@ -629,7 +712,7 @@ function shareLinkedIn(){
 
 function shareIG(){
   document.getElementById('igNote').classList.add('visible');
-  downloadCard(); // auto-download for IG
+  downloadCard();
 }
 
 function copyLink(){
@@ -639,7 +722,6 @@ function copyLink(){
     t.classList.add('visible');
     setTimeout(()=>t.classList.remove('visible'), 2500);
   }).catch(()=>{
-    // fallback
     const ta = document.createElement('textarea');
     ta.value = text; document.body.appendChild(ta); ta.select();
     document.execCommand('copy'); document.body.removeChild(ta);
