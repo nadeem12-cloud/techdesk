@@ -4,7 +4,7 @@
 
 TechDesk is a curated IT industry news platform built specifically for engineering students preparing for campus placements. Unlike generic tech news sites, every story is filtered and annotated with **placement relevance** — helping you understand what's happening in the industry and how it impacts your career prospects.
 
-**Live Demo:** [techdesk.vercel.app](https://techdesk.vercel.app) *(replace with your actual deployment URL)*
+**Live Demo:** [techdesk.vercel.app](https://techdesk-seven.vercel.app/) *(replace with your actual deployment URL)*
 
 ---
 
