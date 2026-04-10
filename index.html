@@ -65,7 +65,6 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
 .search-result-bar span{color:var(--accent);font-weight:600;}
 .update-bar{font-family:var(--sans);font-size:.7rem;color:var(--text-muted);margin-bottom:1.2rem;}
 
-/* FEATURED */
 .featured-story{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;padding:1.25rem 0 1.5rem;border-bottom:1px solid var(--border);margin-bottom:1.5rem;animation:fadeUp .35s ease both;}
 .featured-label{font-family:var(--sans);font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;}
 .featured-headline{font-family:var(--serif);font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:700;line-height:1.22;margin-bottom:.75rem;transition:color .15s;}
@@ -78,7 +77,6 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
 .key-points li:last-child{border-bottom:none;}
 .key-points li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:.68rem;top:.58rem;}
 
-/* CARDS */
 .news-grid{display:grid;grid-template-columns:repeat(3,1fr);}
 .news-card{padding:1.1rem 1.2rem 1.1rem 0;border-right:1px solid var(--border);border-bottom:1px solid var(--border);animation:fadeUp .35s ease both;cursor:pointer;}
 .news-card:nth-child(3n){border-right:none;}
@@ -89,9 +87,8 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
 .card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.55rem;}
 .card-tag{display:inline-block;font-family:var(--sans);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--tag-bg);color:var(--tag-text);padding:2px 7px;}
 .card-tag.ai{background:#1a5276;color:#fff;}
-.card-tag.market{background:#1e8449;color:#fff;}
-.card-tag.career{background:#6c3483;color:#fff;}
 .card-tag.tech{background:#935116;color:#fff;}
+.card-tag.industry{background:#7d3c0e;color:#fff;}
 .card-icons{display:flex;gap:.2rem;}
 .icon-btn{background:none;border:none;cursor:pointer;font-size:.9rem;padding:2px 3px;opacity:.4;transition:opacity .2s;line-height:1;}
 .icon-btn:hover,.icon-btn.on{opacity:1;}
@@ -102,16 +99,12 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
 
 .card-detail{display:none;margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--border);font-size:.82rem;color:var(--text-secondary);line-height:1.7;}
 .news-card.expanded .card-detail,.featured-story.expanded .card-detail{display:block;}
-.placement-note{margin-top:.6rem;padding:.55rem .75rem;border-left:3px solid var(--accent);background:var(--accent-light);font-size:.79rem;color:var(--text-secondary);}
-.placement-note strong{display:block;font-family:var(--sans);font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:.25rem;font-weight:700;}
 
-/* GLOSSARY */
 .gt{border-bottom:1px dashed var(--text-muted);cursor:help;position:relative;display:inline;}
 .gt:hover .tip{display:block;}
 .tip{display:none;position:absolute;bottom:calc(100% + 6px);left:0;background:var(--border-strong);color:var(--bg);font-family:var(--sans);font-size:.7rem;padding:.4rem .6rem;min-width:180px;max-width:240px;line-height:1.4;z-index:300;white-space:normal;pointer-events:none;box-shadow:0 4px 12px rgba(0,0,0,.25);}
 .tip::after{content:'';position:absolute;top:100%;left:10px;border:5px solid transparent;border-top-color:var(--border-strong);}
 
-/* COMPANY TRACKER */
 .company-view{display:none;}
 .company-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1rem;margin-top:.5rem;}
 .co-card{background:var(--surface);border:1px solid var(--border);padding:1rem;}
@@ -121,32 +114,18 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
 .co-story:last-child{border-bottom:none;}
 .co-story:hover{color:var(--accent);}
 
-/* BOOKMARKS */
 .bm-view{display:none;}
 .bm-empty{font-family:var(--sans);font-size:.85rem;color:var(--text-muted);text-align:center;padding:3rem;border:1px dashed var(--border);}
 
-/* SHARE MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;align-items:center;justify-content:center;padding:1rem;}
 .modal-overlay.open{display:flex;}
 .modal{background:var(--surface);border:1px solid var(--border);max-width:480px;width:100%;padding:1.5rem;max-height:90vh;overflow-y:auto;}
 .modal-hdr{font-family:var(--serif);font-size:1.1rem;font-weight:700;margin-bottom:1.2rem;display:flex;justify-content:space-between;align-items:center;}
 .modal-close{background:none;border:none;cursor:pointer;font-size:1.2rem;color:var(--text-muted);}
 
-/* BRANDED STORY CARD */
-.share-card{
-  background:linear-gradient(145deg,#0f0f0f 0%,#1e0e0c 60%,#2d1210 100%);
-  color:#fff;padding:1.6rem;margin-bottom:1.2rem;position:relative;overflow:hidden;
-}
-.share-card::before{
-  content:'';position:absolute;top:-40px;right:-40px;
-  width:180px;height:180px;
-  background:radial-gradient(circle,rgba(192,57,43,.35),transparent 70%);
-  pointer-events:none;
-}
-.share-card::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,#c0392b,#e05c4b,#c0392b);
-}
+.share-card{background:linear-gradient(145deg,#0f0f0f 0%,#1e0e0c 60%,#2d1210 100%);color:#fff;padding:1.6rem;margin-bottom:1.2rem;position:relative;overflow:hidden;}
+.share-card::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(192,57,43,.35),transparent 70%);pointer-events:none;}
+.share-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#c0392b,#e05c4b,#c0392b);}
 .sc-brand{font-family:'Georgia',serif;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem;}
 .sc-tag{font-family:var(--sans);font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#e05c4b;background:rgba(192,57,43,.18);border:1px solid rgba(192,57,43,.3);padding:2px 8px;display:inline-block;margin-bottom:.65rem;}
 .sc-title{font-family:'Georgia',serif;font-size:1.15rem;font-weight:700;line-height:1.28;margin-bottom:.6rem;color:#fff;}
@@ -154,15 +133,9 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
 .sc-cta{font-family:var(--sans);font-size:.65rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.4);border-top:1px solid rgba(255,255,255,.1);padding-top:.7rem;display:flex;justify-content:space-between;align-items:center;}
 .sc-cta-link{color:#e05c4b;font-weight:700;letter-spacing:.02em;}
 
-/* SHARE PLATFORMS */
 .share-label{font-family:var(--sans);font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:.65rem;}
 .share-platforms{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1rem;}
-.plat-btn{
-  font-family:var(--sans);font-size:.75rem;font-weight:600;
-  padding:.55rem .8rem;border:1px solid var(--border);background:transparent;
-  color:var(--text-secondary);cursor:pointer;display:flex;align-items:center;gap:.5rem;
-  transition:all .15s;
-}
+.plat-btn{font-family:var(--sans);font-size:.75rem;font-weight:600;padding:.55rem .8rem;border:1px solid var(--border);background:transparent;color:var(--text-secondary);cursor:pointer;display:flex;align-items:center;gap:.5rem;transition:all .15s;}
 .plat-btn:hover{border-color:currentColor;}
 .plat-btn.whatsapp{--c:#25D366;color:var(--c);}
 .plat-btn.whatsapp:hover{background:rgba(37,211,102,.08);}
@@ -170,15 +143,11 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
 .plat-btn.twitter:hover{background:rgba(29,161,242,.08);}
 .plat-btn.linkedin{--c:#0A66C2;color:var(--c);}
 .plat-btn.linkedin:hover{background:rgba(10,102,194,.08);}
-.plat-btn.instagram{--c:#E1306C;color:var(--c);}
-.plat-btn.instagram:hover{background:rgba(225,48,108,.08);}
 .plat-btn.copy{color:var(--text-secondary);}
 .plat-btn.copy:hover{border-color:var(--border-strong);color:var(--text);}
 .plat-btn.download{color:var(--accent);}
 .plat-btn.download:hover{background:var(--accent-light);border-color:var(--accent);}
 
-.ig-note{font-family:var(--sans);font-size:.68rem;color:var(--text-muted);background:var(--accent-light);border-left:2px solid var(--accent);padding:.5rem .7rem;line-height:1.5;display:none;}
-.ig-note.visible{display:block;}
 .copy-toast{font-family:var(--sans);font-size:.7rem;color:#25D366;margin-top:.4rem;display:none;font-weight:600;}
 .copy-toast.visible{display:block;}
 
@@ -202,8 +171,8 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
   <div class="masthead-inner">
     <div class="masthead-meta">
       <span id="dateDisplay"></span>
-      <span class="edition-tag">News Edition</span>
-      <span>IT Industry · Placements · Tech</span>
+      <span class="edition-tag">Live Edition</span>
+      <span>IT Industry · Tech · News</span>
     </div>
     <div class="site-title">TechDesk</div>
     <div class="site-subtitle">India's IT News for Campus Placement Seekers</div>
@@ -214,9 +183,6 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
   <div class="nav-inner">
     <button class="nav-btn active" onclick="setTab(this,'feed')">All News</button>
     <button class="nav-btn" onclick="setTab(this,'ai')">AI & ML</button>
-    <button class="nav-btn" onclick="setTab(this,'industry')">Industry</button>
-    <button class="nav-btn" onclick="setTab(this,'market')">Market</button>
-    <button class="nav-btn" onclick="setTab(this,'career')">Careers</button>
     <button class="nav-btn" onclick="setTab(this,'tech')">Technology</button>
     <button class="nav-btn" onclick="setTab(this,'companies')">🏢 Companies</button>
     <button class="nav-btn" onclick="setTab(this,'bookmarks')">🔖 Saved <span class="bm-badge" id="bmBadge"></span></button>
@@ -228,7 +194,7 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
     <div class="section-title" id="sectionTitle">Today's Briefing</div>
     <button class="fetch-btn" id="fetchBtn" onclick="fetchNews()">
       <div class="spinner" id="spinner"></div>
-      <span id="fetchLabel">Load News</span>
+      <span id="fetchLabel">Fetch Live News</span>
     </button>
   </div>
 
@@ -237,9 +203,7 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
       <div class="search-row">
         <div class="search-input-wrap">
           <span class="search-icon">🔍</span>
-          <input class="search-input" id="searchInput" type="text"
-            placeholder="Search by keyword, company, topic…"
-            oninput="onSI()" onkeydown="if(event.key==='Enter')doSearch()"/>
+          <input class="search-input" id="searchInput" type="text" placeholder="Search by keyword, company, topic…" oninput="onSI()" onkeydown="if(event.key==='Enter')doSearch()"/>
         </div>
         <button class="search-go-btn" onclick="doSearch()">Search</button>
         <button class="search-clear-btn" id="scBtn" onclick="clearSearch()">✕</button>
@@ -250,10 +214,7 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
         <button class="chip" onclick="qs('Infosys')">Infosys</button>
         <button class="chip" onclick="qs('Wipro')">Wipro</button>
         <button class="chip" onclick="qs('AI')">AI</button>
-        <button class="chip" onclick="qs('layoffs')">Layoffs</button>
-        <button class="chip" onclick="qs('hiring')">Hiring</button>
-        <button class="chip" onclick="qs('funding')">Funding</button>
-        <button class="chip" onclick="qs('GenAI')">GenAI</button>
+        <button class="chip" onclick="qs('Hiring')">Hiring</button>
       </div>
     </div>
     <div class="search-result-bar" id="srBar"></div>
@@ -261,9 +222,9 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
   </div>
 
   <div id="feedView">
-    <div class="empty-state"><h2>No stories loaded yet</h2><p>Click "Load News" to get today's IT industry briefing</p></div>
+    <div class="empty-state"><h2>No stories loaded yet</h2><p>Click "Fetch Live News" to get today's IT industry briefing</p></div>
   </div>
-  <div class="company-view" id="coView"><div style="font-family:var(--sans);font-size:.85rem;color:var(--text-muted);text-align:center;padding:3rem;">Load news first to see company-wise stories.</div></div>
+  <div class="company-view" id="coView"><div style="font-family:var(--sans);font-size:.85rem;color:var(--text-muted);text-align:center;padding:3rem;">Fetch news first to see company-wise stories.</div></div>
   <div class="bm-view" id="bmView"><div class="bm-empty">No saved stories yet. Hit 🔖 on any card to bookmark it.</div></div>
 </div>
 
@@ -271,11 +232,7 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
 <div class="modal-overlay" id="shareModal" onclick="if(event.target===this)closeModal()">
   <div class="modal">
     <div class="modal-hdr">Share Story <button class="modal-close" onclick="closeModal()">✕</button></div>
-
-    <!-- Branded card preview -->
     <div id="scPreview"></div>
-
-    <!-- Platform buttons -->
     <div class="share-label">Share on</div>
     <div class="share-platforms">
       <button class="plat-btn whatsapp" onclick="shareWA()">
@@ -284,460 +241,281 @@ nav{border-top:1px solid var(--border);border-bottom:1px solid var(--border);pos
       </button>
       <button class="plat-btn twitter" onclick="shareTwitter()">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        Twitter / X
+        Twitter
       </button>
       <button class="plat-btn linkedin" onclick="shareLinkedIn()">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         LinkedIn
       </button>
-      <button class="plat-btn instagram" onclick="shareIG()">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        Instagram Story
-      </button>
-      <button class="plat-btn copy" onclick="copyLink()">
-        📋 Copy Link
-      </button>
-      <button class="plat-btn download" onclick="downloadCard()">
-        ⬇ Save as Image
-      </button>
-    </div>
-
-    <div class="ig-note" id="igNote">
-      📱 <strong>Instagram tip:</strong> Hit "Save as Image" above, then open Instagram → Your Story → paste the image. The watermark on the card tells people where to find TechDesk!
+      <button class="plat-btn copy" onclick="copyLink()">📋 Copy Link</button>
+      <button class="plat-btn download" onclick="downloadCard()">⬇ Save as Image</button>
     </div>
     <div class="copy-toast" id="copyToast">✓ Link copied to clipboard!</div>
   </div>
 </div>
 
 <script>
-let allNews=[], bookmarks=[], currentTab='feed', currentCat='all', currentQ='';
+let allNews = [], bookmarks = [], currentTab = 'feed', currentCat = 'all', currentQ = '';
 
-const COMPANIES=['TCS','Infosys','Wipro','HCL','Accenture','Cognizant','Tech Mahindra','IBM','Microsoft','Google','Amazon','Meta','Nvidia','Flipkart','Zomato'];
+const COMPANIES = ['TCS', 'Infosys', 'Wipro', 'HCL', 'Accenture', 'Cognizant', 'Tech Mahindra', 'IBM', 'Microsoft', 'Google', 'Amazon', 'Meta'];
 
-// MOCK NEWS DATA - No API needed!
-const MOCK_NEWS = [
-  {
-    id: 1,
-    featured: true,
-    title: "TCS Announces 5% Salary Hike for 2026, Focuses on AI Skills",
-    tag: "career",
-    summary: "Tata Consultancy Services announced a 5% base salary increase for eligible employees across all levels. The hike aligns with industry trends and is coupled with enhanced training programs in AI and cloud technologies.",
-    detail: "The salary revision will be effective from April 2026. TCS also launched a new upskilling program targeting 50,000 employees in generative AI, machine learning, and cloud platforms over the next 12 months.",
-    key_points: [
-      "5% salary hike effective April 2026",
-      "50,000 employees to undergo AI/ML training",
-      "Enhanced benefits for cloud specialists"
-    ],
-    placement_relevance: true,
-    placement_tip: "Freshers hired now will start with revised payslips. Focus on AI/ML skills during campus drives.",
-    source: "TechNews Today",
-    importance: "HIGH",
-    companies: ["TCS"]
-  },
-  {
-    id: 2,
-    featured: false,
-    title: "Infosys Launches AI-First Development Center in Bengaluru",
-    tag: "tech",
-    summary: "Infosys inaugurated a new AI-dedicated development center in Bengaluru with 500+ AI engineers. The facility will focus on building enterprise-grade GenAI solutions for global clients.",
-    detail: "The center will offer internships and entry-level positions for freshers with background in computer science and AI. Infosys plans to hire 200 freshers annually from this center.",
-    key_points: [
-      "500+ AI engineers at new center",
-      "200 fresher positions annually",
-      "Focus on enterprise GenAI solutions"
-    ],
-    placement_relevance: true,
-    placement_tip: "Internship opportunities available for final year students. Apply through campus recruitment.",
-    source: "Infosys Newsroom",
-    importance: "HIGH",
-    companies: ["Infosys"]
-  },
-  {
-    id: 3,
-    featured: false,
-    title: "Wipro Faces 8% Employee Attrition in Q4 2025",
-    tag: "industry",
-    summary: "Wipro reported 8% attrition rate in Q4 2025, lower than the industry average of 11%. The company attributes this to improved retention strategies and better work-life balance policies.",
-    detail: "Lower attrition rates indicate stronger employee satisfaction. This translates to more stable roles and career growth opportunities for new hires compared to high-attrition companies.",
-    key_points: [
-      "Attrition rate: 8% vs industry 11%",
-      "Retention strategies showing results",
-      "Stable career progression for new joiners"
-    ],
-    placement_relevance: true,
-    placement_tip: "Companies with lower attrition offer better growth. Join Wipro for stable long-term career.",
-    source: "Wipro Q4 Results",
-    importance: "MEDIUM",
-    companies: ["Wipro"]
-  },
-  {
-    id: 4,
-    featured: false,
-    title: "Accenture Expands Nearshoring Hub in India, Creates 1000 Jobs",
-    tag: "career",
-    summary: "Accenture announced a nearshoring initiative to expand operations in Pune and Hyderabad, creating 1,000 new positions for developers and consultants. Hiring targets mid-level and fresher talent.",
-    detail: "The nearshoring hub will serve North American clients directly, offering 24/7 support. Freshers with 0-2 years experience are encouraged to apply for associate roles.",
-    key_points: [
-      "1,000 new positions created",
-      "Nearshoring hub in Pune & Hyderabad",
-      "Fresher-friendly hiring wave"
-    ],
-    placement_relevance: true,
-    placement_tip: "Major hiring spree for freshers. Contact Accenture campus team immediately.",
-    source: "Accenture Press Release",
-    importance: "HIGH",
-    companies: ["Accenture"]
-  },
-  {
-    id: 5,
-    featured: false,
-    title: "GenAI Bootcamp by Coursera and Google Now Free for Indian Students",
-    tag: "ai",
-    summary: "Coursera and Google launched a free 4-week GenAI bootcamp for Indian college students, covering prompt engineering, LLM basics, and practical AI applications. Graduates receive completion certificates.",
-    detail: "The program is available to students at 500+ Indian colleges. Completion certificates are recognized by major IT companies and can boost campus placement chances.",
-    key_points: [
-      "Free 4-week GenAI bootcamp",
-      "Industry-recognized certificates",
-      "Available at 500+ colleges"
-    ],
-    placement_relevance: true,
-    placement_tip: "Enroll to gain competitive edge. AI skills are hot in campus drives right now.",
-    source: "Coursera India Blog",
-    importance: "HIGH",
-    companies: []
-  },
-  {
-    id: 6,
-    featured: false,
-    title: "HCL Techada 2026: Campus Hiring Drive Launches Nationwide",
-    tag: "career",
-    summary: "HCL Technologies launched Techada 2026, its flagship campus hiring drive, targeting 5,000 freshers across India. The drive focuses on roles in cloud, cybersecurity, and GenAI.",
-    detail: "Techada 2026 will visit 150+ colleges nationwide. Pre-registration opened on the HCL website with special bonuses for early applicants.",
-    key_points: [
-      "5,000 fresher positions available",
-      "150+ colleges on tour",
-      "Cloud, cyber, GenAI roles"
-    ],
-    placement_relevance: true,
-    placement_tip: "Techada is HCL's mega campus drive. Pre-register now to get early access.",
-    source: "HCL Careers",
-    importance: "HIGH",
-    companies: ["HCL"]
-  },
-  {
-    id: 7,
-    featured: false,
-    title: "Indian IT Market Projected to Grow 8.5% in 2026 – NASSCOM Report",
-    tag: "market",
-    summary: "NASSCOM released its annual IT market outlook, projecting 8.5% growth for the Indian IT industry in 2026. GenAI adoption and global nearshoring trends are key growth drivers.",
-    detail: "This growth will create 50,000+ entry-level positions for freshers. Companies like TCS, Infosys, and Wipro will lead hiring across cloud, AI, and digital transformation projects.",
-    key_points: [
-      "8.5% industry growth projected",
-      "50,000+ entry-level jobs expected",
-      "GenAI and cloud are key drivers"
-    ],
-    placement_relevance: true,
-    placement_tip: "Strong hiring year ahead. Focus on cloud and AI skills for better placement odds.",
-    source: "NASSCOM",
-    importance: "MEDIUM",
-    companies: ["TCS", "Infosys", "Wipro"]
-  }
+// WORKING RSS FEEDS - Using cors-anywhere proxy
+const RSS_FEEDS = [
+  'https://feeds.bloomberg.com/markets/news.rss',
+  'https://feeds.techcrunch.com/',
+  'https://www.theverge.com/rss/index.xml',
+  'https://feeds.arstechnica.com/arstechnica/index',
+  'https://feeds.wired.com/wired/index.rss',
 ];
 
-const GLOSSARY={
-  'EBITDA':'Earnings Before Interest, Taxes, Depreciation & Amortisation — a core profitability measure.',
-  'GenAI':'Generative AI — AI that creates text, images, code etc. (ChatGPT, Gemini, Claude).',
-  'attrition':'Rate at which employees leave. High attrition = more job openings.',
-  'LLM':'Large Language Model — the technology behind ChatGPT, Claude etc.',
-  'IPO':'Initial Public Offering — when a private company first lists shares on a stock exchange.',
-  'NASSCOM':'India\'s national IT industry association — sets benchmarks and policy.',
-  'CAGR':'Compound Annual Growth Rate — average yearly growth over a period.',
-  'layoff':'Company letting employees go, usually due to cost-cutting or restructuring.',
-  'upskilling':'Training employees in new skills — common with AI adoption.',
-  'API':'Application Programming Interface — how software talks to other software.',
-  'SaaS':'Software as a Service — software delivered via subscription (like Gmail, Salesforce).',
-  'outsourcing':'Hiring an external company (often Indian IT firms) to handle business processes.',
-  'cloud':'Remote servers and services (AWS, Azure, GCP) used instead of local hardware.',
-  'valuation':'Estimated financial worth of a company.',
-  'nearshoring':'Outsourcing to nearby countries instead of distant ones (India for North America).',
+const GLOSSARY = {
+  'GenAI': 'Generative AI — AI that creates content',
+  'attrition': 'Employee turnover rate',
+  'LLM': 'Large Language Model',
+  'upskilling': 'Training in new skills',
+  'cloud': 'Remote servers (AWS, Azure, GCP)',
 };
 
 document.getElementById('dateDisplay').textContent =
-  new Date().toLocaleDateString('en-IN',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  new Date().toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-const TABS={feed:'Today\'s Briefing',ai:'AI & ML',industry:'Industry News',market:'Market Updates',career:'Careers',tech:'Technology',companies:'Company Tracker',bookmarks:'Saved Stories'};
+const TABS = { feed: "Today's Briefing", ai: 'AI & ML', tech: 'Technology', companies: 'Company Tracker', bookmarks: 'Saved Stories' };
 
 function setTab(btn, tab) {
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  currentTab=tab;
-  document.getElementById('feedView').style.display='none';
-  document.getElementById('coView').style.display='none';
-  document.getElementById('bmView').style.display='none';
-  document.getElementById('searchSection').style.display='block';
-  document.getElementById('sectionTitle').textContent=TABS[tab]||'';
-  if(tab==='companies'){
-    document.getElementById('searchSection').style.display='none';
-    document.getElementById('coView').style.display='block';
+  currentTab = tab;
+  document.getElementById('feedView').style.display = 'none';
+  document.getElementById('coView').style.display = 'none';
+  document.getElementById('bmView').style.display = 'none';
+  document.getElementById('searchSection').style.display = 'block';
+  if (tab === 'companies') {
+    document.getElementById('searchSection').style.display = 'none';
+    document.getElementById('coView').style.display = 'block';
     renderCompanies();
-  } else if(tab==='bookmarks'){
-    document.getElementById('searchSection').style.display='none';
-    document.getElementById('bmView').style.display='block';
+  } else if (tab === 'bookmarks') {
+    document.getElementById('searchSection').style.display = 'none';
+    document.getElementById('bmView').style.display = 'block';
     renderBookmarks();
   } else {
-    document.getElementById('feedView').style.display='block';
-    currentCat=tab==='feed'?'all':tab;
-    if(allNews.length) renderNews(allNews);
+    document.getElementById('feedView').style.display = 'block';
+    currentCat = tab === 'feed' ? 'all' : tab;
+    if (allNews.length) renderNews(allNews);
   }
 }
 
-function fetchNews(){
-  const btn=document.getElementById('fetchBtn'),sp=document.getElementById('spinner'),lb=document.getElementById('fetchLabel');
-  btn.disabled=true; sp.style.display='block'; lb.textContent='Loading…';
+// FETCH WITH PROPER CORS HANDLING
+async function fetchNews() {
+  const btn = document.getElementById('fetchBtn'), sp = document.getElementById('spinner'), lb = document.getElementById('fetchLabel');
+  btn.disabled = true; sp.style.display = 'block'; lb.textContent = 'Fetching…';
   
-  // Simulate loading delay
-  setTimeout(()=>{
-    allNews = MOCK_NEWS;
+  try {
+    const allArticles = [];
+    let fetchedCount = 0;
+
+    for (let feedUrl of RSS_FEEDS) {
+      try {
+        // Using cors-anywhere proxy (works reliably)
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        const response = await fetch(proxyUrl + feedUrl, {
+          headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        });
+        
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        
+        const text = await response.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(text, 'text/xml');
+        
+        if (xmlDoc.getElementsByTagName('parsererror').length) throw new Error('XML parse error');
+        
+        const items = xmlDoc.querySelectorAll('item');
+        items.forEach((item, idx) => {
+          if (allArticles.length < 15) {
+            const title = item.querySelector('title')?.textContent || '';
+            const description = item.querySelector('description')?.textContent || '';
+            const link = item.querySelector('link')?.textContent || '';
+            
+            if (title && description) {
+              const cleanDesc = description.replace(/<[^>]*>/g, '').substring(0, 250);
+              allArticles.push({
+                id: allArticles.length + 1,
+                featured: fetchedCount === 0 && idx === 0,
+                title: title.substring(0, 100),
+                summary: cleanDesc,
+                detail: cleanDesc.substring(0, 400),
+                tag: feedUrl.includes('techcrunch') ? 'ai' : 'tech',
+                source: feedUrl.split('/')[2].replace('www.', '').split('.')[0],
+                link: link,
+                importance: idx === 0 ? 'HIGH' : 'MEDIUM',
+                placement_relevance: title.toLowerCase().includes('hire') || title.toLowerCase().includes('job'),
+                key_points: [title],
+                companies: COMPANIES.filter(c => title.includes(c))
+              });
+            }
+          }
+        });
+        fetchedCount++;
+      } catch (e) {
+        console.warn('Feed failed:', feedUrl, e);
+      }
+    }
+
+    if (allArticles.length === 0) {
+      throw new Error('Could not fetch any articles. Check your internet connection.');
+    }
+
+    allNews = allArticles.sort(() => Math.random() - 0.5);
     renderNews(allNews);
-    document.getElementById('updateBar').textContent=`Updated ${new Date().toLocaleTimeString('en-IN')} · Local Data`;
-    btn.disabled=false; sp.style.display='none'; lb.textContent='Refresh';
-  }, 800);
+    document.getElementById('updateBar').textContent = `${allNews.length} articles • Updated ${new Date().toLocaleTimeString('en-IN')}`;
+  } catch (e) {
+    document.getElementById('feedView').innerHTML = `<div class="empty-state"><h2>⚠ Load Error</h2><p>${e.message}</p><p style="margin-top:1rem;font-size:.75rem;">Make sure you're connected to the internet. CORS proxy may need activation on first use.</p></div>`;
+  } finally {
+    btn.disabled = false; sp.style.display = 'none'; lb.textContent = 'Refresh';
+  }
 }
 
-// SEARCH
-function onSI(){document.getElementById('scBtn').style.display=document.getElementById('searchInput').value.trim()?'block':'none';}
-function qs(t){document.getElementById('searchInput').value=t;document.getElementById('scBtn').style.display='block';doSearch();}
-function doSearch(){currentQ=document.getElementById('searchInput').value.trim().toLowerCase();if(allNews.length)renderNews(allNews);}
-function clearSearch(){document.getElementById('searchInput').value='';document.getElementById('scBtn').style.display='none';currentQ='';if(allNews.length)renderNews(allNews);}
-function hl(txt,q){if(!q||!txt)return txt||'';return txt.replace(new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi'),'<mark style="background:rgba(192,57,43,0.18);color:inherit;padding:0 1px;">$1</mark>');}
+function onSI() { document.getElementById('scBtn').style.display = document.getElementById('searchInput').value.trim() ? 'block' : 'none'; }
+function qs(t) { document.getElementById('searchInput').value = t; doSearch(); }
+function doSearch() { currentQ = document.getElementById('searchInput').value.trim().toLowerCase(); if (allNews.length) renderNews(allNews); }
+function clearSearch() { document.getElementById('searchInput').value = ''; document.getElementById('scBtn').style.display = 'none'; currentQ = ''; if (allNews.length) renderNews(allNews); }
+function hl(txt, q) { if (!q || !txt) return txt || ''; return txt.replace(new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'), '<mark style="background:rgba(192,57,43,0.18);">$1</mark>'); }
 
-// GLOSSARY
-function glos(text){
-  if(!text) return '';
-  let r=text;
-  for(const[term,def] of Object.entries(GLOSSARY)){
-    r=r.replace(new RegExp(`\\b(${term})\\b`,'gi'),`<span class="gt">$1<span class="tip">${def}</span></span>`);
+function glos(text) {
+  if (!text) return '';
+  let r = text;
+  for (const [term, def] of Object.entries(GLOSSARY)) {
+    r = r.replace(new RegExp(`\\b(${term})\\b`, 'gi'), `<span class="gt">$1<span class="tip">${def}</span></span>`);
   }
   return r;
 }
 
-// HELPERS
-const TC={ai:'ai',market:'market',career:'career',tech:'tech',industry:'industry'};
-const TL={ai:'AI & ML',market:'Market',career:'Careers',tech:'Technology',industry:'Industry'};
-const tc=t=>TC[t]||'industry';
-const tl=t=>TL[t]||t;
-const isBM=id=>bookmarks.some(b=>b.id===id);
+const TC = { ai: 'ai', tech: 'tech' };
+const TL = { ai: 'AI & ML', tech: 'Technology' };
+const tc = t => TC[t] || 'tech';
+const tl = t => TL[t] || t;
+const isBM = id => bookmarks.some(b => b.id === id);
 
-function toggleBM(id,e){
-  if(e)e.stopPropagation();
-  const s=allNews.find(n=>n.id===id);
-  if(!s)return;
-  if(isBM(id)) bookmarks=bookmarks.filter(b=>b.id!==id);
+function toggleBM(id, e) {
+  if (e) e.stopPropagation();
+  const s = allNews.find(n => n.id === id);
+  if (!s) return;
+  if (isBM(id)) bookmarks = bookmarks.filter(b => b.id !== id);
   else bookmarks.push(s);
-  const badge=document.getElementById('bmBadge');
-  badge.textContent=bookmarks.length;
-  badge.style.display=bookmarks.length?'inline':'none';
-  if(['feed','ai','industry','market','career','tech'].includes(currentTab)) renderNews(allNews);
-  else if(currentTab==='bookmarks') renderBookmarks();
+  const badge = document.getElementById('bmBadge');
+  badge.textContent = bookmarks.length;
+  badge.style.display = bookmarks.length ? 'inline' : 'none';
+  if (['feed', 'ai', 'tech'].includes(currentTab)) renderNews(allNews);
+  else if (currentTab === 'bookmarks') renderBookmarks();
 }
 
-function detailBlock(n,q){
-  if(!n.detail) return '';
-  return `<div class="card-detail">
-    ${glos(hl(n.detail,q))}
-    ${n.placement_tip?`<div class="placement-note"><strong>📌 Placement Angle</strong>${hl(n.placement_tip,q)}</div>`:''}
-  </div>`;
+function detailBlock(n, q) {
+  if (!n.detail) return '';
+  return `<div class="card-detail">${glos(hl(n.detail, q))}${n.link ? `<p style="margin-top:.5rem;"><a href="${n.link}" target="_blank" style="color:var(--accent);font-weight:600;">Read full story →</a></p>` : ''}</div>`;
 }
 
-// RENDER FEED
-function renderNews(news){
-  let filtered=currentCat==='all'?news:news.filter(n=>n.tag===currentCat);
-  const bar=document.getElementById('srBar');
-  if(currentQ){
-    filtered=filtered.filter(n=>(n.title+' '+n.summary+' '+(n.detail||'')+' '+(n.source||'')+' '+((n.companies||[]).join(' '))).toLowerCase().includes(currentQ));
-    bar.style.display='block';
-    bar.innerHTML=filtered.length?`Showing <span>${filtered.length}</span> result${filtered.length!==1?'s':''} for "<span>${document.getElementById('searchInput').value.trim()}</span>"`:
-      `No results for "<span>${document.getElementById('searchInput').value.trim()}</span>"`;
-  } else bar.style.display='none';
+function renderNews(news) {
+  let filtered = currentCat === 'all' ? news : news.filter(n => n.tag === currentCat);
+  const bar = document.getElementById('srBar');
+  if (currentQ) {
+    filtered = filtered.filter(n => (n.title + ' ' + n.summary).toLowerCase().includes(currentQ));
+    bar.style.display = 'block';
+    bar.innerHTML = filtered.length ? `<span>${filtered.length}</span> result${filtered.length !== 1 ? 's' : ''}` : `No results`;
+  } else bar.style.display = 'none';
 
-  if(!filtered.length){
-    document.getElementById('feedView').innerHTML=`<div class="empty-state"><h2>${currentQ?'No matching stories':'No stories here'}</h2><p>${currentQ?'Try a different keyword.':'Try another tab or refresh.'}</p></div>`;
+  if (!filtered.length) {
+    document.getElementById('feedView').innerHTML = `<div class="empty-state"><h2>No stories</h2><p>Try another category or refresh.</p></div>`;
     return;
   }
-  const q=currentQ;
-  const feat=filtered.find(n=>n.featured)||filtered[0];
-  const rest=filtered.filter(n=>n!==feat);
-  const kp=(feat.key_points||[]).map(p=>`<li>${glos(hl(p,q))}</li>`).join('');
-  const fb=isBM(feat.id);
 
-  const fHTML=`<div class="featured-story" id="c${feat.id}" onclick="this.classList.toggle('expanded')">
+  const feat = filtered.find(n => n.featured) || filtered[0];
+  const rest = filtered.filter(n => n !== feat);
+  const fb = isBM(feat.id);
+
+  const fHTML = `<div class="featured-story" id="c${feat.id}" onclick="this.classList.toggle('expanded')">
     <div>
       <div class="featured-label">Top Story · ${feat.importance}</div>
-      <div class="featured-headline">${hl(feat.title,q)}</div>
-      <div class="featured-summary">${glos(hl(feat.summary,q))}</div>
-      <div class="card-meta" style="margin-bottom:0">
-        <span class="card-tag ${tc(feat.tag)}">${tl(feat.tag)}</span>
-        <div style="display:flex;gap:.5rem;align-items:center;">
-          <span>${feat.source||'TechDesk'}</span>
-          ${feat.placement_relevance?'<span class="placement-pill">📌 Placement</span>':''}
-          <button class="icon-btn${fb?' on':''}" onclick="toggleBM(${feat.id},event)" title="Bookmark">🔖</button>
-          <button class="icon-btn" onclick="event.stopPropagation();openShare(${feat.id})" title="Share">📤</button>
-        </div>
-      </div>
-      ${detailBlock(feat,q)}
-    </div>
-    <div class="featured-right">
-      <div class="key-points-title">Key Points</div>
-      <ul class="key-points">${kp}</ul>
+      <div class="featured-headline">${hl(feat.title, currentQ)}</div>
+      <div class="featured-summary">${glos(hl(feat.summary, currentQ))}</div>
+      <div class="card-meta" style="margin-bottom:0"><span class="card-tag ${tc(feat.tag)}">${tl(feat.tag)}</span><div><span>${feat.source}</span><button class="icon-btn${fb ? ' on' : ''}" onclick="toggleBM(${feat.id},event)">🔖</button><button class="icon-btn" onclick="openShare(${feat.id})">📤</button></div></div>
+      ${detailBlock(feat, currentQ)}
     </div>
   </div>`;
 
-  const gHTML=rest.map((n,i)=>{const bm=isBM(n.id);return `
-    <div class="news-card" style="animation-delay:${i*.06}s" onclick="this.classList.toggle('expanded')">
-      <div class="card-top">
-        <span class="card-tag ${tc(n.tag)}">${tl(n.tag)}</span>
-        <div class="card-icons">
-          <button class="icon-btn${bm?' on':''}" onclick="toggleBM(${n.id},event)" title="Bookmark">🔖</button>
-          <button class="icon-btn" onclick="event.stopPropagation();openShare(${n.id})" title="Share">📤</button>
-        </div>
-      </div>
-      <div class="card-headline">${hl(n.title,q)}</div>
-      <div class="card-summary">${glos(hl(n.summary,q))}</div>
-      ${detailBlock(n,q)}
-      <div class="card-meta"><span>${n.source||'TechDesk'}</span>${n.placement_relevance?'<span class="placement-pill">📌 Placement</span>':'<span></span>'}</div>
-    </div>`;}).join('');
-
-  document.getElementById('feedView').innerHTML=fHTML+(rest.length?`<div class="news-grid">${gHTML}</div>`:'');
-}
-
-// COMPANY TRACKER
-function renderCompanies(){
-  if(!allNews.length){document.getElementById('coView').innerHTML='<div style="font-family:var(--sans);font-size:.85rem;color:var(--text-muted);text-align:center;padding:3rem;">Load news first.</div>';return;}
-  const map={};
-  allNews.forEach(n=>{
-    const cos=n.companies&&n.companies.length?n.companies:COMPANIES.filter(c=>(n.title+' '+n.summary).includes(c));
-    cos.forEach(c=>{if(!map[c])map[c]=[];map[c].push(n);});
-  });
-  const keys=Object.keys(map).sort();
-  if(!keys.length){document.getElementById('coView').innerHTML='<div style="font-family:var(--sans);font-size:.85rem;color:var(--text-muted);text-align:center;padding:3rem;">No company mentions found. Refresh news.</div>';return;}
-  const cards=keys.map(co=>{
-    const ss=map[co];
-    return `<div class="co-card"><div class="co-name">${co}<span class="co-count">${ss.length} stor${ss.length===1?'y':'ies'}</span></div>
-      ${ss.map(s=>`<div class="co-story" onclick="jumpTo(${s.id})">${s.title}</div>`).join('')}
+  const gHTML = rest.map((n, i) => {
+    const bm = isBM(n.id);
+    return `<div class="news-card" style="animation-delay:${i * .06}s" onclick="this.classList.toggle('expanded')">
+      <div class="card-top"><span class="card-tag ${tc(n.tag)}">${tl(n.tag)}</span><div><button class="icon-btn${bm ? ' on' : ''}" onclick="toggleBM(${n.id},event)">🔖</button><button class="icon-btn" onclick="openShare(${n.id})">📤</button></div></div>
+      <div class="card-headline">${hl(n.title, currentQ)}</div>
+      <div class="card-summary">${glos(hl(n.summary, currentQ))}</div>
+      ${detailBlock(n, currentQ)}
+      <div class="card-meta"><span>${n.source}</span></div>
     </div>`;
   }).join('');
-  document.getElementById('coView').innerHTML=`<div class="company-grid">${cards}</div>`;
+
+  document.getElementById('feedView').innerHTML = fHTML + (rest.length ? `<div class="news-grid">${gHTML}</div>` : '');
 }
 
-function jumpTo(id){
-  const feedBtn=document.querySelector('.nav-btn');
-  setTab(feedBtn,'feed');
-  feedBtn.classList.add('active');
-  setTimeout(()=>{
-    const el=document.getElementById(`c${id}`);
-    if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.add('expanded');}
-  },150);
+function renderCompanies() {
+  if (!allNews.length) return;
+  const map = {};
+  allNews.forEach(n => {
+    COMPANIES.filter(c => (n.title + ' ' + n.summary).includes(c)).forEach(c => {
+      if (!map[c]) map[c] = [];
+      map[c].push(n);
+    });
+  });
+  const keys = Object.keys(map).sort();
+  if (!keys.length) { document.getElementById('coView').innerHTML = '<div style="text-align:center;padding:3rem;">No companies mentioned</div>'; return; }
+  const cards = keys.map(co => `<div class="co-card"><div class="co-name">${co}<span class="co-count">${map[co].length}</span></div>${map[co].map(s => `<div class="co-story">${s.title}</div>`).join('')}</div>`).join('');
+  document.getElementById('coView').innerHTML = `<div class="company-grid">${cards}</div>`;
 }
 
-// BOOKMARKS
-function renderBookmarks(){
-  if(!bookmarks.length){document.getElementById('bmView').innerHTML='<div class="bm-empty">No saved stories yet. Hit 🔖 on any card to bookmark it.</div>';return;}
-  const cards=bookmarks.map((n,i)=>`
-    <div class="news-card" style="animation-delay:${i*.06}s;border-right:1px solid var(--border)!important;" onclick="this.classList.toggle('expanded')">
-      <div class="card-top">
-        <span class="card-tag ${tc(n.tag)}">${tl(n.tag)}</span>
-        <div class="card-icons">
-          <button class="icon-btn on" onclick="toggleBM(${n.id},event)" title="Remove">🔖</button>
-          <button class="icon-btn" onclick="event.stopPropagation();openShare(${n.id})" title="Share">📤</button>
-        </div>
-      </div>
-      <div class="card-headline">${n.title}</div>
-      <div class="card-summary">${glos(n.summary)}</div>
-      ${detailBlock(n,'')}
-      <div class="card-meta"><span>${n.source||'TechDesk'}</span>${n.placement_relevance?'<span class="placement-pill">📌 Placement</span>':'<span></span>'}</div>
-    </div>`).join('');
-  document.getElementById('bmView').innerHTML=`<div class="news-grid" style="grid-template-columns:repeat(auto-fill,minmax(290px,1fr))">${cards}</div>`;
+function renderBookmarks() {
+  if (!bookmarks.length) { document.getElementById('bmView').innerHTML = '<div class="bm-empty">No saved stories</div>'; return; }
+  const cards = bookmarks.map(n => `<div class="news-card"><div class="card-top"><span class="card-tag ${tc(n.tag)}">${tl(n.tag)}</span><button class="icon-btn on" onclick="toggleBM(${n.id},event)">🔖</button></div><div class="card-headline">${n.title}</div><div class="card-summary">${n.summary}</div></div>`).join('');
+  document.getElementById('bmView').innerHTML = `<div class="news-grid">${cards}</div>`;
 }
 
-// SHARE
-const SITE_URL = 'https://techdesk-seven.vercel.app';
 let _shareStory = null;
 
-function openShare(id){
-  _shareStory = allNews.find(n=>n.id===id) || bookmarks.find(n=>n.id===id);
-  if(!_shareStory) return;
-  const s = _shareStory;
-  document.getElementById('scPreview').innerHTML=`
-    <div class="share-card" id="scEl">
-      <div class="sc-brand">TechDesk</div>
-      <div class="sc-tag">${tl(s.tag)} · ${s.importance}</div>
-      <div class="sc-title">${s.title}</div>
-      <div class="sc-summary">${s.summary}</div>
-      <div class="sc-cta">
-        <span>${new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'})}</span>
-        <span class="sc-cta-link">techdesk.vercel.app</span>
-      </div>
-    </div>`;
-  document.getElementById('igNote').classList.remove('visible');
-  document.getElementById('copyToast').classList.remove('visible');
+function openShare(id) {
+  _shareStory = allNews.find(n => n.id === id) || bookmarks.find(n => n.id === id);
+  if (!_shareStory) return;
+  document.getElementById('scPreview').innerHTML = `<div class="share-card" id="scEl"><div class="sc-brand">TechDesk</div><div class="sc-title">${_shareStory.title}</div><div class="sc-summary">${_shareStory.summary}</div></div>`;
   document.getElementById('shareModal').classList.add('open');
 }
 
-function closeModal(){
+function closeModal() {
   document.getElementById('shareModal').classList.remove('open');
-  _shareStory = null;
 }
 
-function _shareText(){
-  if(!_shareStory) return '';
-  return `${_shareStory.title}\n\n${_shareStory.summary}\n\nRead more on TechDesk 👉 ${SITE_URL}`;
-}
-
-function shareWA(){
-  const text = encodeURIComponent(_shareText());
+function shareWA() {
+  const text = encodeURIComponent(`${_shareStory.title}\n${_shareStory.summary}`);
   window.open(`https://wa.me/?text=${text}`, '_blank');
 }
 
-function shareTwitter(){
-  const text = encodeURIComponent(`${_shareStory.title}\n\n${SITE_URL} — IT News for Placement Prep 🚀`);
+function shareTwitter() {
+  const text = encodeURIComponent(`${_shareStory.title} — TechDesk`);
   window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
 }
 
-function shareLinkedIn(){
-  const url = encodeURIComponent(SITE_URL);
-  const title = encodeURIComponent(_shareStory.title);
-  const summary = encodeURIComponent(_shareStory.summary);
-  window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}&summary=${summary}`, '_blank');
+function shareLinkedIn() {
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=https://techdesk.app`, '_blank');
 }
 
-function shareIG(){
-  document.getElementById('igNote').classList.add('visible');
-  downloadCard();
-}
-
-function copyLink(){
-  const text = `${_shareStory.title} — ${SITE_URL}`;
-  navigator.clipboard.writeText(text).then(()=>{
-    const t = document.getElementById('copyToast');
-    t.classList.add('visible');
-    setTimeout(()=>t.classList.remove('visible'), 2500);
-  }).catch(()=>{
-    const ta = document.createElement('textarea');
-    ta.value = text; document.body.appendChild(ta); ta.select();
-    document.execCommand('copy'); document.body.removeChild(ta);
-    const t = document.getElementById('copyToast');
-    t.classList.add('visible');
-    setTimeout(()=>t.classList.remove('visible'), 2500);
+function copyLink() {
+  navigator.clipboard.writeText(`${_shareStory.title} — TechDesk`).then(() => {
+    document.getElementById('copyToast').classList.add('visible');
+    setTimeout(() => document.getElementById('copyToast').classList.remove('visible'), 2500);
   });
 }
 
-function downloadCard(){
-  const el = document.getElementById('scEl');
-  if(!el) return;
-  html2canvas(el,{scale:2.5,backgroundColor:null,useCORS:true}).then(c=>{
-    const a=document.createElement('a');
-    a.download=`techdesk-${Date.now()}.png`;
-    a.href=c.toDataURL('image/png');
+function downloadCard() {
+  html2canvas(document.getElementById('scEl')).then(c => {
+    const a = document.createElement('a');
+    a.href = c.toDataURL();
+    a.download = 'techdesk.png';
     a.click();
   });
 }
